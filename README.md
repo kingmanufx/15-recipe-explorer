@@ -31,6 +31,23 @@ slower section loads. In development, the related section waits one second to
 make the streaming state easy to observe; production requests have no added
 delay.
 
+## Search and server entry points
+
+The `/search?q=...` page reads the URL query on the server and fetches results
+directly through `searchMeals`; the `SearchBox` updates that URL after a
+300 ms pause, making searches bookmarkable and shareable. The header's
+autocomplete calls `/api/search`, whose Route Handler returns a small JSON
+response with cache headers and a 400 response for queries shorter than two
+characters.
+
+Use a Server Component for data needed to render a page: it avoids a browser
+round-trip and keeps server-only credentials and data access out of client
+code. Use a Route Handler when you need an HTTP endpoint for client-side
+features, third-party consumers, or explicit HTTP status and cache headers.
+Use a Server Action for mutations triggered by the UI, such as saving a
+favorite or submitting a form; it runs server-side and can update or revalidate
+data without building a separate HTTP API.
+
 ## Getting Started
 
 First, run the development server:

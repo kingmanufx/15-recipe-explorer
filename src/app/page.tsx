@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SiteHeader from "@/components/site-header";
 import { getCategories } from "@/lib/mealdb";
 
 export default async function Home() {
@@ -7,14 +8,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[#faf8f3] text-stone-900">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          simmer<span className="text-orange-600">.</span>
-        </Link>
-        <span className="text-sm font-medium text-stone-500">
-          A world of recipes
-        </span>
-      </header>
+      <SiteHeader />
 
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-10 lg:px-10 lg:pt-16">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-orange-700">

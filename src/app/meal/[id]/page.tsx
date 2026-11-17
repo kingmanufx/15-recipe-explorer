@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
+import SiteHeader from "@/components/site-header";
 import {
   getMeal,
   getMealsByCategory,
@@ -89,17 +90,7 @@ export default async function MealPage({ params }: MealPageProps) {
 
   return (
     <main className="min-h-screen bg-[#faf8f3] text-stone-900">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          simmer<span className="text-orange-600">.</span>
-        </Link>
-        <Link
-          href={`/category/${encodeURIComponent(meal.strCategory)}`}
-          className="text-sm font-semibold text-stone-600 transition hover:text-orange-700"
-        >
-          More {meal.strCategory} recipes
-        </Link>
-      </header>
+      <SiteHeader />
 
       <article className="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
         <section className="grid gap-8 pb-12 pt-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">

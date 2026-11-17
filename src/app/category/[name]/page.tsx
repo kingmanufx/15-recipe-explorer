@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SiteHeader from "@/components/site-header";
 import {
   getCategories,
   getMealsByCategory,
@@ -55,17 +56,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <main className="min-h-screen bg-[#faf8f3] text-stone-900">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          simmer<span className="text-orange-600">.</span>
-        </Link>
-        <Link
-          href="/"
-          className="text-sm font-semibold text-stone-600 transition hover:text-orange-700"
-        >
-          All categories
-        </Link>
-      </header>
+      <SiteHeader />
 
       <section className="mx-auto max-w-7xl px-6 pb-16 pt-8 lg:px-10">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-700">
